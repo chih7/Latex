@@ -48,6 +48,15 @@ $if(CJKmainfont)$
 $endif$
 
 % chih
+\AtBeginDocument{%
+  \letcs\oig{@orig\string\includegraphics}%
+  \renewcommand<>\includegraphics[2][]{%
+    \only#3{%
+      {\centering\oig[{#1}]{#2}\par}%
+    }%
+  }%
+}
+
 \usepackage{ctex}
 % chih
 
